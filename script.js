@@ -13,7 +13,7 @@ function getComputerChoice() {
 
 function getUserChoice(value) {
   let result = null;
-  if (value !== undefined) {
+  if (value !== undefined && value <= 2) {
     result = arr[value];
     return result;
   } else {
@@ -21,50 +21,47 @@ function getUserChoice(value) {
   }
 }
 
-function getWinnerOfRound(userAnswer, compAnswer) {
+function checkWinnerOfRound(userAnswer, compAnswer) {
   if (userAnswer == compAnswer) {
-    return "Draw!";
+    return "** Draw! **";
   } else if (
     (userAnswer == "Rock" && compAnswer == "Scissors") ||
     (userAnswer == "Scissors" && compAnswer == "Paper") ||
     (userAnswer == "Paper" && compAnswer == "Rock")
   ) {
     userScore += 1;
-    return "User WINS!";
+    return "** User WINS! **";
   } else {
     compScore += 1;
-    return "Computer WINS!";
+    return "** Computer WINS! **";
   }
 }
 
-function getWinnerOfGame(userScore, compScore) {
+function checkWinnerOfGame(userScore, compScore) {
   if (userScore > compScore) {
-    return `${userScore} : ${compScore} User WINS THE GAME!`;
+    return `---- ${userScore} : ${compScore} User WINS THE GAME! ----`;
   } else if (userScore == compScore) {
-    return `${userScore} : ${compScore} TOTAL DRAW!`;
+    return `---- ${userScore} : ${compScore} TOTAL DRAW! ---`;
   } else {
-    return `${userScore} : ${compScore} compute WINS THE GAME!`;
+    return `----- ${userScore} : ${compScore} computer WINS THE GAME! ----`;
   }
 }
 
 function RockPaperScissors() {
   let userChoice = getUserChoice(
-    Number(prompt("Напиши число в ответ 0 = Камень, 1 = Бумага, 2 = Ножницы")),
+    Number(prompt("Write number in answer  0 = Rock, 1 = Paper, 2 = Scissors")),
   );
   let computerChoice = getComputerChoice();
 
   console.log(userChoice, computerChoice);
-  console.log(getWinnerOfRound(userChoice, computerChoice));
+  console.log(checkWinnerOfRound(userChoice, computerChoice));
 }
-RockPaperScissors();
 
-//функция с сравнением, которая сравнивает ответы пользователя
-// и ответ компьютера к тому же записывает кто побеждает  и добавляет в общий счет,
-// раундов
-//будет пять.
+function getRounds() {
+  for (let i = 0; i <= 5; i++) {
+    RockPaperScissors();
+  }
+  console.log(checkWinnerOfGameg(userScore, compScore));
+}
 
-// цикл из пяти итерация раундов
-
-//функция сравненния счета, кто победил в сумме.
-
-//функция игры полной, которая вызывает каждую функцию вместе
+getrounds();
