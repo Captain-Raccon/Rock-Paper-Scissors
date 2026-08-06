@@ -21,16 +21,34 @@ function getUserChoice(value) {
   }
 }
 
+function getWinnerOfRound(userAnswer, compAnswer) {
+  if (userAnswer === compAnswer) {
+    return "Draw!";
+  } else if (
+    (userAnswer == "Rock" && compAnswer == "Scissors") ||
+    (userAnswer == "Scissors" && compAnswer == "Paper") ||
+    (userAnswer == "Paper" && compAnswer == "Rock")
+  ) {
+    userScore += 1;
+    return "User WINS!";
+  } else {
+    compScore += 1;
+    return "Computer WINS!";
+  }
+}
+
+function getWinnerOfGame(userScore, compScore) {
+  if (userScore > compScore) {
+    return `${userScore} : ${compScore} User WINS THE GAME!`;
+  } else if (userScore == compScore) {
+    return `${userScore} : ${compScore} TOTAL DRAW!`;
+  } else {
+    return `${userScore} : ${compScore} compute WINS THE GAME!`;
+  }
+}
+
 console.log(getUserChoice(1));
 console.log(getComputerChoice());
-
-// Массив с значениями
-//// две переменные которые хранят счет, победы компьютера и человека
-
-//Функция которая через math random возращает либо 1, 2, 3
-
-//функция которая получается ответ от пользователя и конвентирует это ответ в
-// один из ответов в массиве -1
 
 //функция с сравнением, которая сравнивает ответы пользователя
 // и ответ компьютера к тому же записывает кто побеждает  и добавляет в общий счет,
