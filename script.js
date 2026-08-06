@@ -58,10 +58,10 @@ function RockPaperScissors() {
 }
 
 function getRounds() {
-  for (let i = 0; i <= 5; i++) {
+  for (let i = 0; i < 5; i++) {
     RockPaperScissors();
   }
-  console.log(checkWinnerOfGameg(userScore, compScore));
+  console.log(checkWinnerOfGame(userScore, compScore));
 }
 
-getrounds();
+getRounds();
