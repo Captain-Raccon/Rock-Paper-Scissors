@@ -13,7 +13,7 @@ function getComputerChoice() {
 
 function getUserChoice(value) {
   let result = null;
-  if (value) {
+  if (value !== undefined) {
     result = arr[value];
     return result;
   } else {
@@ -22,7 +22,7 @@ function getUserChoice(value) {
 }
 
 function getWinnerOfRound(userAnswer, compAnswer) {
-  if (userAnswer === compAnswer) {
+  if (userAnswer == compAnswer) {
     return "Draw!";
   } else if (
     (userAnswer == "Rock" && compAnswer == "Scissors") ||
@@ -47,8 +47,16 @@ function getWinnerOfGame(userScore, compScore) {
   }
 }
 
-console.log(getUserChoice(1));
-console.log(getComputerChoice());
+function RockPaperScissors() {
+  let userChoice = getUserChoice(
+    Number(prompt("Напиши число в ответ 0 = Камень, 1 = Бумага, 2 = Ножницы")),
+  );
+  let computerChoice = getComputerChoice();
+
+  console.log(userChoice, computerChoice);
+  console.log(getWinnerOfRound(userChoice, computerChoice));
+}
+RockPaperScissors();
 
 //функция с сравнением, которая сравнивает ответы пользователя
 // и ответ компьютера к тому же записывает кто побеждает  и добавляет в общий счет,
