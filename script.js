@@ -1,13 +1,11 @@
-//Псевдокод;
-
-const arr = ["Rock", "Paper", "Scissors"];
+const weapons = ["Rock", "Paper", "Scissors"];
 
 let userScore = 0;
 let compScore = 0;
 
 function getComputerChoice() {
-  let random = Math.floor(Math.random() * 3) + 1;
-  let result = arr[random - 1];
+  let random = Math.floor(Math.random() * weapons.length);
+  let result = weapons[random];
   return result;
 }
 
@@ -33,7 +31,7 @@ function checkWinnerOfRound(userAnswer, compAnswer) {
   }
 }
 
-function checkWinnerOfGame(userScore, compScore) {
+function checkWinnerOfGame() {
   if (userScore > compScore) {
     return `---- ${userScore} : ${compScore} User WINS THE GAME! ----`;
   } else if (userScore == compScore) {
@@ -52,10 +50,12 @@ function startGame() {
 }
 
 function startRounds() {
+  userScore = 0;
+  compScore = 0;
   for (let i = 0; i < 5; i++) {
     startGame();
   }
-  console.log(checkWinnerOfGame(userScore, compScore));
+  console.log(checkWinnerOfGame());
 }
 
 startRounds();
