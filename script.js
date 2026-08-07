@@ -11,14 +11,10 @@ function getComputerChoice() {
   return result;
 }
 
-function getUserChoice(value) {
-  let result = null;
-  if (value !== undefined && value <= 2) {
-    result = arr[value];
-    return result;
-  } else {
-    return "error";
-  }
+function getUserChoice(textAnswer) {
+  let result = textAnswer.toLowerCase();
+  result = result.charAt(0).toUpperCase() + result.slice(1);
+  return result;
 }
 
 function checkWinnerOfRound(userAnswer, compAnswer) {
@@ -47,21 +43,19 @@ function checkWinnerOfGame(userScore, compScore) {
   }
 }
 
-function RockPaperScissors() {
-  let userChoice = getUserChoice(
-    Number(prompt("Write number in answer  0 = Rock, 1 = Paper, 2 = Scissors")),
-  );
+function startGame() {
+  let userChoice = getUserChoice(prompt("Write answer Rock, Paper, Scissors"));
   let computerChoice = getComputerChoice();
 
   console.log(userChoice, computerChoice);
   console.log(checkWinnerOfRound(userChoice, computerChoice));
 }
 
-function getRounds() {
+function startRounds() {
   for (let i = 0; i < 5; i++) {
-    RockPaperScissors();
+    startGame();
   }
   console.log(checkWinnerOfGame(userScore, compScore));
 }
 
-getRounds();
+startRounds();
