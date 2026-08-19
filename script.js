@@ -49,7 +49,7 @@ function startGame() {
   console.log(checkWinnerOfRound(userChoice, computerChoice));
 }
 
-function startRounds() {
+/* function startRounds() {
   userScore = 0;
   compScore = 0;
   for (let i = 0; i < 5; i++) {
@@ -59,3 +59,4 @@ function startRounds() {
 }
 
 startRounds();
+*/
