@@ -41,13 +41,28 @@ function checkWinnerOfGame() {
   }
 }
 
-function startGame() {
-  let userChoice = getUserChoice(prompt("Write answer Rock, Paper, Scissors"));
+function startGame(userButt) {
+  let userChoice = getUserChoice(userButt);
   let computerChoice = getComputerChoice();
 
   console.log(userChoice, computerChoice);
   console.log(checkWinnerOfRound(userChoice, computerChoice));
 }
+
+let buttonRock = document.getElementById("Rock");
+buttonRock.addEventListener("click", () => {
+  startGame("Rock");
+});
+
+let buttonPaper = document.getElementById("Paper");
+buttonPaper.addEventListener("click", () => {
+  startGame("Paper");
+});
+
+let buttonScissors = document.getElementById("Scissors");
+buttonScissors.addEventListener("click", () => {
+  startGame("Scissors");
+});
 
 /* function startRounds() {
   userScore = 0;
