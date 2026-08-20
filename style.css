@@ -1,3 +1,51 @@
 body {
-  background-color: aqua;
+  background: linear-gradient(-45deg, rgb(165, 51, 51), rgb(72, 27, 73));
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.game {
+  display: flex;
+  gap: 10px;
+}
+
+.game button {
+  width: 200px;
+  height: 100px;
+  color: white;
+  font-size: large;
+  font-family: "Courier New", Courier, monospace;
+  font-style: italic;
+  font-weight: bold;
+  border-style: none;
+  border: solid 3px rgb(200, 70, 70);
+  border-radius: 5px;
+  background-color: rgb(165, 51, 51);
+}
+
+.game button:hover {
+  background-color: rgb(173, 84, 84);
+  border: dashed 3px rgb(157, 82, 82);
+  transition: 500ms;
+}
+
+.Info {
+  margin-top: 30px;
+  background-color: rgb(165, 51, 51);
+  width: 580px;
+  height: 200px;
+  border-radius: 5px;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
 }
