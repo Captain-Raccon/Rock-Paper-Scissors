@@ -2,6 +2,9 @@ const weapons = ["Rock", "Paper", "Scissors"];
 
 let userScore = 0;
 let compScore = 0;
+let playedRounds = 0;
+
+let resultArea = document.getElementById("Text");
 
 function getComputerChoice() {
   let random = Math.floor(Math.random() * weapons.length);
@@ -42,36 +45,45 @@ function checkWinnerOfGame() {
 }
 
 function startGame(userButt) {
-  let userChoice = getUserChoice(userButt);
-  let computerChoice = getComputerChoice();
+  if (playedRounds == 5) {
+    resultArea.textContent = checkWinnerOfGame();
+  } else {
+    let userChoice = getUserChoice(userButt);
+    let computerChoice = getComputerChoice();
 
-  console.log(userChoice, computerChoice);
-  console.log(checkWinnerOfRound(userChoice, computerChoice));
+    resultArea.textContent = `${userChoice} ${computerChoice} ${checkWinnerOfRound(userChoice, computerChoice)}`;
+  }
 }
 
 let buttonRock = document.getElementById("Rock");
 buttonRock.addEventListener("click", () => {
-  startGame("Rock");
+  if (playedRounds >= 5) {
+    resultArea.textContent = "Round ended! For replay just reload the page!";
+    return;
+  } else {
+    startGame("Rock");
+    playedRounds += 1;
+  }
 });
 
 let buttonPaper = document.getElementById("Paper");
 buttonPaper.addEventListener("click", () => {
-  startGame("Paper");
+  if (playedRounds >= 5) {
+    resultArea.textContent = "Round ended! For replay just reload the page!";
+    return;
+  } else {
+    startGame("Paper");
+    playedRounds += 1;
+  }
 });
 
 let buttonScissors = document.getElementById("Scissors");
 buttonScissors.addEventListener("click", () => {
-  startGame("Scissors");
-});
-
-/* function startRounds() {
-  userScore = 0;
-  compScore = 0;
-  for (let i = 0; i < 5; i++) {
-    startGame();
+  if (playedRounds >= 5) {
+    resultArea.textContent = "Round ended! For replay just reload the page!";
+    return;
+  } else {
+    startGame("Scissors");
+    playedRounds += 1;
   }
-  console.log(checkWinnerOfGame());
-}
-
-startRounds();
-*/
+});
